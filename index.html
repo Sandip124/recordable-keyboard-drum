@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drum</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <audio data-key="65" id="A" src="sounds/clap.wav"></audio>
+    <audio data-key="66" id="B" src="sounds/hihat.wav"></audio>
+    <audio data-key="67" id="C" src="sounds/kick.wav"></audio>
+    <audio data-key="68" id="D" src="sounds/openhat.wav"></audio>
+    <audio data-key="69" id="E" src="sounds/boom.wav"></audio>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mousetrap/1.6.5/mousetrap.min.js"
+        integrity="sha512-+Jg3Ynmj9hse704K48H6rBBI3jdNBjReRGBCxUWFfOz3yVurnJFWtAWssDAsGtzWYw89xFWPxShuj2T6E9EOpg=="
+        crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+
+    <script>
+
+        async function InitKeyboardDrum() {
+            try {
+                let response = await fetch('sound.json');
+                let data = await response.json();
+
+                var result = data.sounds;
+
+                let wait = 0
+                result.forEach(sound => {
+                    console.log(sound);
+                    wait += sound.wait;
+                    task(sound, wait);
+                });
+
+
+            } catch (err) {
+                console.error(err);
+            }
+        }
+
+        function task(sound, wait) {
+            setTimeout(() => {
+                handleKeyboardEvent(sound);
+            }, wait);
+        }
+
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        function handleKeyboardEvent(sound) {
+
+            if (sound.code === "KeyA") {
+                handleA();
+            }
+            if (sound.code === "KeyB") {
+                handleB();
+            }
+            if (sound.code === "KeyC") {
+                handleC();
+            }
+            if (sound.code === "KeyD") {
+                handleD();
+            }
+            if (sound.code === "KeyE") {
+                handleE();
+            }
+        }
+
+
+        function handleA() {
+            console.log("A");
+            var sample = document.getElementById("A");
+            sample.play();
+        }
+        function handleB() {
+            console.log("B");
+            var sample = document.getElementById("B");
+            sample.play();
+        }
+        function handleC() {
+            console.log("C");
+            var sample = document.getElementById("C");
+            sample.play();
+        }
+        function handleD() {
+            console.log("D");
+            var sample = document.getElementById("D");
+            sample.play();
+        }
+        function handleE() {
+            console.log("E");
+            var sample = document.getElementById("E");
+            sample.play();
+        }
+
+
+        InitKeyboardDrum();
+
+
+
+
+    </script>
+</body>
+
+</html>

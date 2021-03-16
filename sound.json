@@ -1,0 +1,46 @@
+{
+    "sounds": [
+        {
+            "key": "a",
+            "code": "KeyA",
+            "which": 65,
+            "wait": 500
+        },
+        {
+            "key": "a",
+            "code": "KeyA",
+            "which": 65,
+            "wait": 500
+        },
+        {
+            "key": "b",
+            "code": "KeyB",
+            "which": 66,
+            "wait": 1000
+        },
+        {
+            "key": "c",
+            "code": "KeyC",
+            "which": 67,
+            "wait": 8000
+        },
+        {
+            "key": "d",
+            "code": "KeyD",
+            "which": 68,
+            "wait": 12000
+        },
+        {
+            "key": "e",
+            "code": "KeyE",
+            "which": 69,
+            "wait": 9000
+        },
+        {
+            "key": "a",
+            "code": "KeyA",
+            "which": 65,
+            "wait": 5000
+        }
+    ]
+}
